@@ -29,3 +29,4 @@ coverage
 .idea/encodings.xml
 .idea/.rakeTasks
 .idea/.generators
+.idea/terminal.xml

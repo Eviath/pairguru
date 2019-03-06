@@ -3,3 +3,10 @@
   = @movie.description
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+
+  .container.movie_comments
+    = render partial: 'comments/form', locals: { comment: @comment, movie: @movie}
+
+    %h3 Comments
+    = render partial: 'comments/comments', locals: { comment: @comment }
+

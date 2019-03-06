@@ -1,0 +1,11 @@
+
+= form_for ([@movie, @comment])  do |f|
+
+  .field.d-flex.flex-column
+    = f.label :content
+    = f.text_area :content, class:'form-control'
+
+  .actions
+    = f.submit
+
+

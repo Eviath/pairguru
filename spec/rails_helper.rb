@@ -7,6 +7,10 @@ require "pry"
 require "capybara/rails"
 require "simplecov"
 require "shoulda/matchers"
+require 'devise'
+require 'database_cleaner'
+require_relative 'support/controller_macros' # or require_relative './controller_macros' if write in `spec/support/devise.rb`
+
 SimpleCov.start "rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -30,10 +34,27 @@ SimpleCov.start "rails"
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with :truncation  # clean DB of any leftover data
+    DatabaseCleaner.strategy = :transaction # rollback transactions between each test
+    Rails.application.load_seed # (optional) seed DB
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryBot::Syntax::Methods
   config.include Capybara::DSL
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
