@@ -17,6 +17,8 @@ Rails.logger.info "Creating users..."
   )
 end
 
+
+
 Rails.logger.info "Creating genres..."
 
 %w(Action Comedy Sci-Fi War Crime
@@ -80,5 +82,19 @@ if Movie.count < 100
       genre_id: genre_ids.sample,
       released_at: Date.new(movie[:release_year].to_i)
     )
+  end
+end
+
+
+Rails.logger.info "Creating comments..."
+
+@users = User.all
+@users.each do |c|
+  10.times do |i|
+    Comment.create!(
+        content: Faker::Lorem.paragraph(2),
+        movie_id: Movie.find(1 + i),
+        user_id: c.id,
+        )
   end
 end

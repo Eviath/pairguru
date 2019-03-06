@@ -1,0 +1,12 @@
+
+
+- @top.each do |u|
+  %table.table
+    %tr
+      %td User Name
+      %td Comments Count
+
+    %tr
+      %td=u.name
+      %td=u.comments.count
+
