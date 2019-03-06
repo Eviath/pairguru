@@ -27,6 +27,8 @@ group :development do
 end
 
 group :development, :test do
+  # gem for debugging ruby code
+  gem 'byebug'
   gem "capybara"
   gem "factory_bot_rails"
   gem "faker"
