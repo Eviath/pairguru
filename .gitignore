@@ -19,3 +19,14 @@
 /vendor
 
 coverage
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/terminal.xml
+.idea/pairguru.iml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/encodings.xml
+.idea/.rakeTasks
+.idea/.generators
+.byebug_history
