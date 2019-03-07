@@ -3,7 +3,7 @@ ENV["RAILS_ENV"] ||= "test"
 require "spec_helper"
 require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
-require 'factory_bot_rails'
+require "factory_bot_rails"
 require "pry"
 require "capybara/rails"
 require "simplecov"
