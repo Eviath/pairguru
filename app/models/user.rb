@@ -28,3 +28,5 @@ class User < ApplicationRecord
 
   # associations
   has_many :comments, dependent: :destroy
+
+end
