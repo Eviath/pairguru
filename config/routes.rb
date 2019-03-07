@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  resources :users
 
   resources :movies, only: [:index, :show] do
     resources :comments
