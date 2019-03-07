@@ -19,6 +19,7 @@
 /vendor
 
 coverage
+
 .byebug_history
 .idea/workspace.xml
 .idea/vcs.xml
