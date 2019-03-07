@@ -30,3 +30,5 @@ coverage
 .idea/.rakeTasks
 .idea/.generators
 .idea/terminal.xml
+.byebug_history
+
