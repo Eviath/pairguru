@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_04_06_223727) do
+
+ActiveRecord::Schema.define(version: 2019_03_06_143233) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "movie_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
@@ -48,6 +57,8 @@ ActiveRecord::Schema.define(version: 2017_04_06_223727) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "name", default: "", null: false
+    t.integer "comment_id"
+    t.index ["comment_id"], name: "index_users_on_comment_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
