@@ -27,8 +27,12 @@ group :development do
 end
 
 group :development, :test do
+  # gem for debugging ruby code
+  gem 'byebug'
+  # gem for cleaning database
+  gem 'database_cleaner'
   gem "capybara"
-  gem "factory_bot_rails"
+  gem "factory_bot_rails", require: false
   gem "faker"
   gem "listen"
   gem "rspec-rails"

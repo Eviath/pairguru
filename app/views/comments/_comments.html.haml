@@ -1,0 +1,8 @@
+- @comments.each do |comment|
+  .comment_content
+    %strong=comment.user.name
+    %br
+    %p=comment.content
+    -if is_signed_in_and_author_of(comment) # normally i would use CanCanCan
+      %p=link_to 'Delete', [comment.movie, comment], method: :delete, data: { confirm: 'Are you sure?' }
+

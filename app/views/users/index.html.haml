@@ -1,0 +1,20 @@
+.row
+  .col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+    %h1.text-center Top commenters of the week
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th Name
+          %th Number of comments
+          %th Last created at
+      %tbody
+        -if @top.any?
+          - @top.each_with_index do |user, i|
+            %tr
+              %td= i + 1
+              %td= user.name
+              %td= user.comments.count
+              %td= user.comments.last.created_at
+        -else
+          %h2 There's no commenters this week!

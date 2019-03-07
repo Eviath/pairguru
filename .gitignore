@@ -19,9 +19,9 @@
 /vendor
 
 coverage
+.byebug_history
 .idea/workspace.xml
 .idea/vcs.xml
-.idea/terminal.xml
 .idea/pairguru.iml
 .idea/modules.xml
 .idea/misc.xml
@@ -29,4 +29,6 @@ coverage
 .idea/encodings.xml
 .idea/.rakeTasks
 .idea/.generators
+.idea/terminal.xml
 .byebug_history
+
