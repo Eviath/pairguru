@@ -89,12 +89,14 @@ end
 Rails.logger.info "Creating comments..."
 
 @users = User.all
-@users.each do |c|
-  10.times do |i|
+
+@users.each_with_index do |user, index|
+  index.times do |i|
     Comment.create!(
         content: Faker::Lorem.paragraph(2),
         movie_id: Movie.find(1 + i),
-        user_id: c.id,
+        user_id: user.id,
+        movie: Movie.find(1 + i),
         )
   end
 end
